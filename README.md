@@ -108,4 +108,3 @@ For identity pool, `Kafka API` is created for any user who has `radius-kafka-api
 - [Confluent Terraform Provider Documentation](https://registry.terraform.io/providers/confluentinc/confluent/latest/docs)
 - [Confluent Terraform Provider GitHub](https://github.com/confluentinc/terraform-provider-confluent)
     - [Examples](https://github.com/confluentinc/terraform-provider-confluent/tree/master/examples/configurations)
-- 
