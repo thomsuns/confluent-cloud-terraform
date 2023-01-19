@@ -18,17 +18,21 @@ Identity Provider ${confluent_identity_provider.okta.display_name}
         Identity Claim: ${confluent_identity_pool.kafka-api-write.identity_claim}
         Filter:         ${confluent_identity_pool.kafka-api-write.filter}
 
-    Binding Roles ${confluent_role_binding.kafka-api-write-role.principal}
-        CRN pattern: ${confluent_role_binding.kafka-api-write-role.crn_pattern}
-        Role Name: ${confluent_role_binding.kafka-api-write-role.role_name}
-    
-    Binding Roles ${confluent_role_binding.kafka-api-read-role.principal}
-        CRN pattern: ${confluent_role_binding.kafka-api-read-role.crn_pattern}
-        Role Name: ${confluent_role_binding.kafka-api-read-role.role_name}
+Kafka Cluster ${data.confluent_kafka_cluster.inventory.display_name}
+    ID:                 ${data.confluent_kafka_cluster.inventory.id}
+    Bootstrap Endpoint: ${data.confluent_kafka_cluster.inventory.bootstrap_endpoint}
 
-    Binding Roles ${confluent_role_binding.kafka-api-read-group-role.principal}
-        CRN pattern: ${confluent_role_binding.kafka-api-read-group-role.crn_pattern}
-        Role Name: ${confluent_role_binding.kafka-api-read-group-role.role_name}
+Binding Roles ${confluent_role_binding.kafka-api-write-role.principal}
+    CRN pattern: ${confluent_role_binding.kafka-api-write-role.crn_pattern}
+    Role Name: ${confluent_role_binding.kafka-api-write-role.role_name}
+
+Binding Roles ${confluent_role_binding.kafka-api-read-role.principal}
+    CRN pattern: ${confluent_role_binding.kafka-api-read-role.crn_pattern}
+    Role Name: ${confluent_role_binding.kafka-api-read-role.role_name}
+
+Binding Roles ${confluent_role_binding.kafka-api-read-group-role.principal}
+    CRN pattern: ${confluent_role_binding.kafka-api-read-group-role.crn_pattern}
+    Role Name: ${confluent_role_binding.kafka-api-read-group-role.role_name}
 
 EOT
 }
