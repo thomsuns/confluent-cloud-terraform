@@ -6,11 +6,17 @@ Identity Provider ${confluent_identity_provider.okta.display_name}
     Issuer URI:  ${confluent_identity_provider.okta.issuer}
     JWKS URI:    ${confluent_identity_provider.okta.jwks_uri}
 
-    Identity Pool ${confluent_identity_pool.kafka-api.display_name}
-        ID:             ${confluent_identity_pool.kafka-api.id}
-        Description:    ${confluent_identity_pool.kafka-api.description}
-        Identity Claim: ${confluent_identity_pool.kafka-api.identity_claim}
-        Filter:         ${confluent_identity_pool.kafka-api.filter}
+    Identity Pool ${confluent_identity_pool.kafka-api-read.display_name}
+        ID:             ${confluent_identity_pool.kafka-api-read.id}
+        Description:    ${confluent_identity_pool.kafka-api-read.description}
+        Identity Claim: ${confluent_identity_pool.kafka-api-read.identity_claim}
+        Filter:         ${confluent_identity_pool.kafka-api-read.filter}
+    
+    Identity Pool ${confluent_identity_pool.kafka-api-write.display_name}
+        ID:             ${confluent_identity_pool.kafka-api-write.id}
+        Description:    ${confluent_identity_pool.kafka-api-write.description}
+        Identity Claim: ${confluent_identity_pool.kafka-api-write.identity_claim}
+        Filter:         ${confluent_identity_pool.kafka-api-write.filter}
 
     Binding Roles ${confluent_role_binding.kafka-api-write-role.principal}
         CRN pattern: ${confluent_role_binding.kafka-api-write-role.crn_pattern}
