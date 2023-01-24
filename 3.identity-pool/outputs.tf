@@ -33,6 +33,10 @@ Binding Roles ${confluent_role_binding.kafka-api-read-role.principal}
 Binding Roles ${confluent_role_binding.kafka-api-read-group-role.principal}
     CRN pattern: ${confluent_role_binding.kafka-api-read-group-role.crn_pattern}
     Role Name: ${confluent_role_binding.kafka-api-read-group-role.role_name}
+    
+Binding Roles ${confluent_role_binding.kafka-cluster-admin-role.principal}
+    CRN pattern: ${confluent_role_binding.kafka-cluster-admin-role.crn_pattern}
+    Role Name: ${confluent_role_binding.kafka-cluster-admin-role.role_name}
 
 EOT
 }

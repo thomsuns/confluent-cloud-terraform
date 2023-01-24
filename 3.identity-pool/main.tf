@@ -41,6 +41,17 @@ resource "confluent_identity_pool" "kafka-api-write" {
   filter = "claims.aud=='radius-kafka-api' && 'kafkaAPIWrite' in claims.scp"
 }
 
+resource "confluent_identity_pool" "kafka-cluster-admin" {
+  identity_provider {
+    id = confluent_identity_provider.okta.id
+  }
+
+  display_name   = "Kafka Cluster Admin"
+  description    = "Okta User with kafkaClusterAdmin scope"
+  identity_claim = "claims.sub"
+  filter = "claims.aud=='radius-kafka-api' && 'kafkaClusterAdmin' in claims.scp"
+}
+
 data "confluent_environment" "staging" {
   display_name = "Staging"
 }
@@ -68,5 +79,11 @@ resource "confluent_role_binding" "kafka-api-read-group-role" {
   principal = "User:${confluent_identity_pool.kafka-api-read.id}"
   role_name = "DeveloperRead"
   crn_pattern = "${data.confluent_kafka_cluster.inventory.rbac_crn}/kafka=${data.confluent_kafka_cluster.inventory.id}/group=thomsuns-consumer-group*"
+}
+
+resource "confluent_role_binding" "kafka-cluster-admin-role" {
+  principal = "User:${confluent_identity_pool.kafka-cluster-admin.id}"
+  role_name = "CloudClusterAdmin"
+  crn_pattern = "${data.confluent_kafka_cluster.inventory.rbac_crn}"
 }
 
