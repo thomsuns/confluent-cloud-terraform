@@ -17,6 +17,12 @@ Identity Provider ${confluent_identity_provider.okta.display_name}
         Description:    ${confluent_identity_pool.kafka-api-write.description}
         Identity Claim: ${confluent_identity_pool.kafka-api-write.identity_claim}
         Filter:         ${confluent_identity_pool.kafka-api-write.filter}
+    
+    Identity Pool ${confluent_identity_pool.kafka-cluster-admin.display_name}
+        ID:             ${confluent_identity_pool.kafka-cluster-admin.id}
+        Description:    ${confluent_identity_pool.kafka-cluster-admin.description}
+        Identity Claim: ${confluent_identity_pool.kafka-cluster-admin.identity_claim}
+        Filter:         ${confluent_identity_pool.kafka-cluster-admin.filter}
 
 Kafka Cluster ${data.confluent_kafka_cluster.inventory.display_name}
     ID:                 ${data.confluent_kafka_cluster.inventory.id}
